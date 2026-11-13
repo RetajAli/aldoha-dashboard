@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al Doha Food Industries – Plant Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230a9d55'/%3E%3Cpath d='M12 5c-3 3-3 7 0 10 3-3 3-7 0-10zM12 15v4' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>try{const r=document.documentElement,t=localStorage.getItem('th');if(t)r.dataset.theme=t;if(localStorage.getItem('lang')==='ar'){r.lang='ar';r.dir='rtl'}}catch(e){}</script>
+<link rel="stylesheet" href="/static/css/styles.css?v={{v}}">
+</head>
+<body>
+<aside id="sb">
+  <div class="brand"><img class="blogo" src="/static/images/aldoha-logo.png" alt="Al Doha logo" width="72" height="48"><span class="t"><b>Al Doha Food</b><small>Plant operations</small></span></div>
+  <nav id="nav"></nav>
+  <div class="lgw"><small class="pwr t">Powered by</small>
+    <div class="lg2"><img alt="Schneider Electric" src="/static/images/schneider.png"><i class="lgd-div"></i><img alt="AVEVA" src="/static/images/aveva.png"></div>
+  </div>
+  <div class="sp"></div>
+  <div class="sync t" id="sync"><i></i><span>Connecting…</span></div>
+  <button class="tog" id="tog"><span id="togi"></span><span class="t">Collapse</span></button>
+</aside>
+<main>
+  <header>
+    <button class="ib" id="mb" aria-label="Menu"></button>
+    <div class="ttl"><small id="crumb">Operations</small><h1 id="ttl">Overview</h1></div>
+    <div class="clk"><b id="tm"></b><span id="dt"></span></div>
+    <button class="ib" id="bell" aria-label="Notifications"><span class="dot" id="nc"></span></button>
+    <button class="ib lngb" id="lng" aria-label="Switch language">ع</button><button class="ib" id="th" aria-label="Switch theme"></button>
+    <div class="av">AM</div>
+  </header>
+  <div id="np"></div>
+  <div class="pg" id="pg"><div class="boot">Loading plant data…</div></div>
+</main>
+<div id="lb" role="dialog" aria-label="Plant photo, full view"><img src="/static/images/factory-photo-hd.jpg" alt="Aerial view of the plant, full resolution"><button class="lbx" aria-label="Close">✕</button><span class="lbh">Click the photo to zoom in or out · Esc to close</span></div>
+<div id="tt" role="tooltip"></div>
+<script src="/static/js/dashboard.js?v={{v}}"></script>
+</body>
+</html>
