@@ -10,7 +10,7 @@ import mimetypes
 import sys
 import time
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -48,6 +48,14 @@ class handler(app.Handler):
         self.wfile.write(body)
 
     def do_GET(self):
+        # vercel.json rewrites every URL to /api/index?__path=<original path>;
+        # restore the original path so app.Handler routes it as usual.
+        url = urlparse(self.path)
+        q = parse_qsl(url.query, keep_blank_values=True)
+        orig = [v for k, v in q if k == "__path"]
+        if orig:
+            rest = urlencode([(k, v) for k, v in q if k != "__path"])
+            self.path = orig[0] + ("?" + rest if rest else "")
         if urlparse(self.path).path == "/api/live":
             _catch_up()
         return super().do_GET()
